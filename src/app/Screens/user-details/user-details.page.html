@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>userDetails</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="registerForm">
+    <ion-item>
+      <ion-label position="floating">FullName</ion-label>
+            <ion-input formControlName="name" type="text">
+            </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Title</ion-label>
+      <ion-select formControlName="title" >
+        <ion-select-option value="Dr">Dr.</ion-select-option>
+        <ion-select-option value="Mr">Mr.</ion-select-option>
+        <ion-select-option value="Mrs">Mrs.</ion-select-option>
+        <ion-select-option value="Ms">Ms.</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">mobile</ion-label>
+            <ion-input formControlName="mobile" type="tel">
+            </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">work</ion-label>
+            <ion-input formControlName="work" type="tel">
+            </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">home</ion-label>
+            <ion-input formControlName="home" type="tel">
+            </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">home address</ion-label>
+            <ion-input formControlName="homeAddr" type="tel">
+            </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">work address</ion-label>
+            <ion-input formControlName="workAddr" type="tel">
+            </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Are you a Member?</ion-label>
+            <ion-input formControlName="mobile" type="tel">
+            </ion-input>
+    </ion-item>
+    
+    <ion-button   color="success" shape="round"
+     (click)="createUser(registerForm)" type="submit" [disabled]="!registerForm.valid" 
+    ion-button>SIGNUP</ion-button>
+</form>
+</ion-content>

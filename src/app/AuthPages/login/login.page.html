@@ -5,5 +5,24 @@
 </ion-header>
 
 <ion-content>
+  <form [formGroup]="loginForm">
+    <ion-item>
+      <ion-label position="floating">Username</ion-label>
+            <ion-input formControlName="email" type="text">
+            </ion-input>
+    </ion-item>
 
+    <ion-item>
+      <ion-label position="floating">password</ion-label>
+            <ion-input formControlName="pwd" type="text">
+            </ion-input>
+    </ion-item>
+    <ion-button   color="success" shape="round"
+     (click)="login(loginForm)" type="submit" [disabled]="!loginForm.valid" 
+    ion-button>login</ion-button>
+</form>
+
+<ion-item>
+  <ion-button [routerLink]="['/register']">sign Up</ion-button>
+</ion-item>
 </ion-content>

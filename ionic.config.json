@@ -1,5 +1,7 @@
 {
   "name": "hopeToYouApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
