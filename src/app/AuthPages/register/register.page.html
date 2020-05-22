@@ -7,21 +7,21 @@
       </div>
     </div>
     <div class="loginForm">
-      <form>
+      <form [formGroup]="registerForm">
             <ion-item style="width: 100%;">
               <ion-label position="floating">Email</ion-label>
-              <ion-input type="text"></ion-input>
+              <ion-input type="text" formControlName="email"></ion-input>
             </ion-item>
             <ion-item style="width: 100%;">
               <ion-label position="floating">Password</ion-label>
-              <ion-input type="password"></ion-input>
+              <ion-input type="password" formControlName="pwd"></ion-input>
             </ion-item>
             <ion-button
-              (click)="manageProfile()"
               style="width: 100%;"
               expand="block"
               fill="fill"
               color="dark"
+              (click)="createUser(registerForm)" type="submit" [disabled]="!registerForm.valid"
             >
               Setup Profile
             </ion-button>

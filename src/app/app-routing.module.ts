@@ -23,7 +23,8 @@ const routes: Routes = [
   {
     path: 'manage-profile',
     loadChildren: () => import('./pages/manage-profile/manage-profile.module').then( m => m.ManageProfilePageModule)
-  },  {
+  },
+  {
     path: 'seat-reservation',
     loadChildren: () => import('./pages/seat-reservation/seat-reservation.module').then( m => m.SeatReservationPageModule)
   },
