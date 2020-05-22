@@ -1,0 +1,44 @@
+.main-content {
+    width: 100%;
+    height: 100%;
+    background: url(../../../assets/images/jay-mantri-TFyi0QOx08c-unsplash.jpg);
+    background-size: cover;
+    position: relative;
+    .slogan {
+        color: #171717;
+        padding: 60px 0px 0px 20px;
+        h1 {
+            margin: 0;
+            font-size: 11vw;
+            font-weight: lighter;
+        }
+        p {
+            font-family: 'BoldFont';
+            margin: 0;
+            font-style: italic;
+        }
+    }
+    .loginForm {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #FFE8D5;
+        padding: 10px 20px;
+        ion-input {
+            --color: black;
+            // --background: white;
+        }
+        ion-label{
+            --color: black;
+        }
+        ion-item {
+            --background: rgba(255, 255, 255, 0);
+
+            .item-native {
+                padding-left: 0 !important;
+            }
+        }
+    }
+}

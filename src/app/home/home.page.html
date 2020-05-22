@@ -1,20 +1,116 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+  <div class="booking" [ngClass]="{'booking-closed': !isBooking}" >
+    <div class="dater">
+      <h1><span>2 May, </span>Sunday</h1>
+    </div>
+    <form>
+      <ion-list style="padding: 0;">
+        <ion-radio-group name="auto" value="null">
+          <ion-item
+            lines="none"
+            style="width: 100%; --background: white; --color: black;"
+          >
+            <ion-label>It's just me</ion-label>
+            <ion-radio value="me"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+      <div class="or">
+        <h1>OR</h1>
+      </div>
+      <ion-item
+        lines="none"
+        style="width: 100%; --background: white; --color: black;"
+      >
+        <ion-label position="floating">A family of:</ion-label>
+        <ion-input type="tel" maxlength="2"></ion-input>
+      </ion-item>
+      <br />
+      <ion-button
+      (click)="seatReservation('c', null)"
+        expand="block"
+        fill="outline"
+        color="dark"
+      >
+        Make Booking
+      </ion-button>
+      <br>
+      <ion-button
+      (click)="seatReservation('c', null)"
+      expand="block"
+      fill="clear"
+      color="danger"
+    >
+      Cancel
+    </ion-button>
+    </form>
+  </div>
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <div class="profile">
+      <p><span>Hi, </span> Keketso Matsuma</p>
+      <ion-avatar style="width: 40px; height: 40px;" (click)="avatarClick()">
+        <img src="../../assets/images/jay-mantri-TFyi0QOx08c-unsplash.jpg" />
+      </ion-avatar>
+    </div>
+    <div class="bookingDays">
+      <div class="b-title">
+        <p>Book a Seat</p>
+      </div>
+      <div class="scroll-days">
+        <div
+          class="d-card"
+          *ngFor="let item of days;let i=index"
+          (click)="seatReservation('o',item)"
+        >
+        <div class="blue-tick">
+          <ion-icon style="margin: auto;" slot="start" name="checkmark" color="dark"></ion-icon>
+        </div>
+          <div class="actual-card">
+            <div class="k">
+              <h1 id="day">{{i * 7}}</h1>
+              <p id="month">May</p>
+              <p id="seats">13 Seats Left</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="userListing">
+      <div class="listingHeader">
+        <div class="header-f">
+          <ion-item
+            lines="none"
+            style="width: 100%; --background: white; --color: black;"
+          >
+            <ion-label>Bookings on</ion-label>
+            <ion-select mode="ios" value="peperoni" multiple="false">
+              <ion-select-option value="peperoni"
+                >Sunday, 2 May</ion-select-option
+              >
+              <ion-select-option value="hawaii"
+                >Sunday, 9 May</ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+        </div>
+      </div>
+      <div class="listingList">
+        <div class="user-card" *ngFor="let item of days;let i=index">
+          <div class="user-avatar">
+            <ion-avatar>
+              <img
+                src="../../assets/images/jay-mantri-TFyi0QOx08c-unsplash.jpg"
+              />
+            </ion-avatar>
+          </div>
+          <div class="user-details">
+            <div class="d">
+              <h4>Siseko Dolwana</h4>
+              <p>Naledi</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </ion-content>

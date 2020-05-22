@@ -1,9 +1,29 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+<div class="main-content">
+  <div class="slogan">
+    <div class="s">
+      <h1>Welcome Back</h1>
+      <p>You need to Sign In</p>
+    </div>
+  </div>
+  <div class="loginForm">
+    <form>
+      <ion-item >
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="text" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+      <ion-button (click)="onClick()" expand="block" fill="fill" color="dark" >
+        DONE
+      </ion-button>
+      <br>
+      <ion-button (click)="register()" size="small" expand="block" fill="clear" color="dark">
+        I don't have an account.
+      </ion-button>
+    </form>
+  </div>
+</div>
 </ion-content>

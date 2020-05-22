@@ -1,0 +1,177 @@
+<ion-content>
+  <div class="main-content">
+    <div class="slogan">
+      <div class="s">
+        <h1 *ngIf="!isEditing">Create Profile</h1>
+        <h1 *ngIf="isEditing">Manage Profile</h1>
+        <!-- please write something sensible in this p tag that resonates with your church -->
+        <p></p>
+      </div>
+    </div>
+    <div class="loginForm">
+      <form>
+        <ion-slides #slides>
+          <ion-slide>
+            <!-- Full name & title -->
+            <div class="personalInfo">
+              <ion-item style="width: 70%;">
+                <ion-label position="floating">Full Name</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+
+              <ion-item style="width: 30%; color: black;">
+                <ion-label position="floating">Title</ion-label>
+                <ion-select
+                  #selopt
+                  (ionChange)="selectOption($event)"
+                  multiple="false"
+                >
+                  <ion-select-option value="mr">Mr</ion-select-option>
+                  <ion-select-option value="miss">Miss</ion-select-option>
+                  <ion-select-option value="dr">Dr</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </div>
+            <!-- gender & dob -->
+            <div class="personalInfo">
+              <ion-item style="width: 50%; color: black;">
+                <ion-label position="floating">Gender</ion-label>
+                <ion-select
+                  #gender
+                  (ionChange)="selectOption($event)"
+                  multiple="false"
+                >
+                  <ion-select-option value="ma">Male</ion-select-option>
+                  <ion-select-option value="fe">Female</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item style="width: 50%; color: black;">
+                <ion-label position="floating">DOB</ion-label>
+                <ion-datetime #DOB display-format="DD, MMM YYYY"></ion-datetime>
+              </ion-item>
+            </div>
+                          <ion-item style="width: 100%;">
+                <ion-label position="floating">Marital Status</ion-label>
+                <ion-select
+                #marital
+                (ionChange)="selectOption($event)"
+                multiple="false"
+              >
+                <ion-select-option value="sin">Single</ion-select-option>
+                <ion-select-option value="mar">Married</ion-select-option>
+                <ion-select-option value="sep">Separated</ion-select-option>
+              </ion-select>
+              </ion-item>
+            <br />
+            <div class="nexter">
+              <ion-button
+                (click)="next()"
+                style="width: 100%;"
+                expand="block"
+                fill="fill"
+                color="dark"
+              >
+                Next
+              </ion-button>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <!-- phone numbers -->
+            <div class="personalInfo">
+              <ion-item style="flex-basis: 100%;">
+                <ion-label position="floating">Phone Number</ion-label>
+                <ion-input type="tel"></ion-input>
+              </ion-item>
+            </div>
+            <!-- phone number-->
+            <div class="personalInfo">
+              <ion-item style="flex-basis: 100%;">
+                <ion-label position="floating">Home Number</ion-label>
+                <ion-input type="tel"></ion-input>
+              </ion-item>
+            </div>
+            <!-- phone number-->
+            <div class="personalInfo">
+              <ion-item style="flex-basis: 100%;">
+                <ion-label position="floating">Work Number</ion-label>
+                <ion-input type="tel"></ion-input>
+              </ion-item>
+            </div>
+            <br />
+            <div class="nexter">
+              <ion-button
+                (click)="back()"
+                style="width: 20%;"
+                expand="block"
+                fill="clear"
+                color="dark"
+              >
+                <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+              </ion-button>
+              <ion-button
+                (click)="next()"
+                style="width: 80%;"
+                expand="block"
+                fill="fill"
+                color="dark"
+              >
+                Next
+              </ion-button>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <!-- home address -->
+            <ion-item style="width: 100%;">
+              <ion-label position="floating">Home Address</ion-label>
+              <ion-input type="address"></ion-input>
+            </ion-item>
+            <!-- work address -->
+            <div class="personalInfo">
+              <ion-item style="width: 100%;">
+                <ion-label position="floating">Work Address</ion-label>
+                <ion-input type="address"></ion-input>
+              </ion-item>
+            </div>
+            <!-- membership -->
+            <ion-list style="width: 100%; background: none;" color="dark">
+              <ion-radio-group color="dark">
+                <div class="personalInfo">
+                  <ion-item style="width: 50%;">
+                    <ion-label>Visitor</ion-label>
+                    <ion-radio value="visitor"></ion-radio>
+                  </ion-item>
+                  <ion-item style="width: 50%;">
+                    <ion-label>Member</ion-label>
+                    <ion-radio value="member"></ion-radio>
+                  </ion-item>
+                </div>
+              </ion-radio-group>
+            </ion-list>
+            <br />
+            <div class="nexter">
+              <ion-button
+                (click)="back()"
+                style="width: 20%;"
+                expand="block"
+                fill="clear"
+                color="dark"
+              >
+                <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+              </ion-button>
+              <ion-button
+                (click)="submit()"
+                style="width: 80%;"
+                expand="block"
+                fill="fill"
+                color="dark"
+              >
+                Done
+              </ion-button>
+            </div>
+          </ion-slide>
+        </ion-slides>
+      </form>
+    </div>
+  </div>
+</ion-content>

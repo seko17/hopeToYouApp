@@ -1,9 +1,41 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Register</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+  <div class="main-content">
+    <div class="slogan">
+      <div class="s">
+        <h1>Hello</h1>
+        <p>Please Sign Up Below</p>
+      </div>
+    </div>
+    <div class="loginForm">
+      <form>
+            <ion-item style="width: 100%;">
+              <ion-label position="floating">Email</ion-label>
+              <ion-input type="text"></ion-input>
+            </ion-item>
+            <ion-item style="width: 100%;">
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="password"></ion-input>
+            </ion-item>
+            <ion-button
+              (click)="manageProfile()"
+              style="width: 100%;"
+              expand="block"
+              fill="fill"
+              color="dark"
+            >
+              Setup Profile
+            </ion-button>
+            <br />
+            <ion-button
+              (click)="login()"
+              size="small"
+              expand="block"
+              fill="clear"
+              color="dark"
+            >
+              I have an account.
+            </ion-button>
+      </form>
+    </div>
+  </div>
 </ion-content>

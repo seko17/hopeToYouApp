@@ -1,27 +1,207 @@
-#container {
-  text-align: center;
-
+.booking {
   position: absolute;
+  top: calc(60px + 17.1px);
   left: 0;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  background: white;
+  z-index: 20;
+  color: black;
+  height: 368.39px;
+  overflow: hidden;
+  transition: 0.3s;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  .or {
+    padding: 15px 0px 0px 0px;
+    text-align: center;
+    h1 {
+      font-size: .8em;
+      margin: 0;
+      font-family: 'BoldFont';
+    }
+  }
+  .dater {
+    width: 100%;
+    padding: 15px 0px 15px 20px;
+    h1 {
+      margin: 0;
+      font-family: 'BoldFont';
+      opacity: .7;
+    }
+  }
 }
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.booking-closed {
+  height: 0px !important;
+  transition: 0.3s;
+  transition-timing-function: ease-in-out;
 }
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+#container {
+  width: 100%;
+  height: 100%;
+  color: black;
+  .profile {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    background: rgb(255, 255, 255);
+    p {
+      margin: 0;
+      font-family: 'BoldFont';
+      flex-basis: 100%;
+      span {
+        font-weight: normal !important;
+      }
+    }
+    ion-avatar {
+      // box-shadow: 0px 0px 3px 3px #17171721;
+    }
+  }
+  .bookingDays {
+    width: 100%;
+    height: 30vh;
+    background: rgb(255, 216, 179);
+    .b-title {
+      width: 100%;
+      height: 10%;
+      background: rgb(255, 255, 255);
+      padding: 0px 20px;
+      
+      p {
+        font-size: .7em;
+        margin: 0;
+      }
+    }
+    .scroll-days {
+      width: 100%;
+      height: 90%;
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      padding: 0px 20px;
+      .d-card {
+        min-width: 36%;
+        min-width: 36%;
+        height: 90%;
+        margin-right: 10px;
+        position: relative;
+        .blue-tick {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          width: 18px;
+          height: 18px;
+          border-radius: 200px;
+          z-index: 2;
+          background: rgb(86, 143, 219);
+          text-align: center;
+          display: flex;
+          align-items: center;
+        }
+        .actual-card {
+          position: absolute;
+          background: white;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          border-radius: 20px;
+          box-shadow: 0px 2px 5px #17171728;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          .k {
+            margin: auto;
+          }
+          #day {
+            font-size: 2.6em;
+            margin: 0;
+            // font-weight: bolder;
+            font-family: 'BoldFont';
+          }
+          #month {
+            margin: 0;
+            font-weight: lighter;
+            padding: 5px 0px;
+          }
+          #seats {
+            opacity: .7;
+            margin: 0;
+            font-size: .7em;
+            font-family: 'BoldFont';
+          }
+        }
+      }
+    }
+  }
+  .userListing {
+    width: 100%;
+    height: calc(100% - 60px - 30vh);
+    background: url(../../assets/images/jay-mantri-TFyi0QOx08c-unsplash.jpg);
+  background-size: cover;
+    .listingHeader {
+      width: 100%;
+      height: 60px;
+      position: relative;
+      background: whitesmoke;
+      .header-f {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        bottom: 5px;
+        right: 5px;
+        display: flex;
+        align-items: center;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0px 2px 5px #17171728;
+        ion-label {
+          font-size: .7em;
+        }
+      }
+    }
+    .listingList {
+      width: 100%;
+      height: calc(100% - 60px);
+      overflow-y: auto;
+      padding: 30px 20px 0px 20px;
+      .user-card {
+        width: 100%;
+        background: whitesmoke;
+        display: flex;
+        align-items: center;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        .user-avatar {
+          flex-basis: 20%;
+          display: flex;
+          align-items: center;
+          position: relative;
+          text-align: center;
+          ion-avatar {
+            width: 48px;
+            height: 48px;
+            margin: auto;
+            transform: translateY(-21px);
+          }
+        }
+        .user-details {
+          display: flex;
+          align-items: center;
+          padding: 12px 0px;
+          h4 {
+            // font-weight: 900;
+            font-family: 'BoldFont';
+          }
+          p {
+            font-size: .8em;
+          }
+          h4, p {
+            font-style: italic;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
 }

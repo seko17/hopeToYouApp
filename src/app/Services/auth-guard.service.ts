@@ -13,6 +13,7 @@ export class AuthGuardService implements CanActivate {
     state: RouterStateSnapshot
   ): boolean | Observable<boolean> | Promise<boolean> {
     return new Promise((resolve, reject) => {
+      // this.navc.navigateRoot('home');
       firebase.auth().onAuthStateChanged((user: firebase.User) => {
         if (user) {
           // resolve(true);

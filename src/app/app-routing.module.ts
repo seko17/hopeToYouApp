@@ -3,14 +3,15 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuardService } from './Services/auth-guard.service';
 const routes: Routes = [
   {
+    // , canActivate: [AuthGuardService]
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),canActivate: [AuthGuardService]
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
-  // {
-  //   path: '',
-  //   redirectTo: 'home',
-  //   pathMatch: 'full'
-  // },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
   {
     path: 'login',
     loadChildren: () => import('./AuthPages/login/login.module').then( m => m.LoginPageModule)
@@ -19,6 +20,15 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./AuthPages/register/register.module').then( m => m.RegisterPageModule)
   },
+  {
+    path: 'manage-profile',
+    loadChildren: () => import('./pages/manage-profile/manage-profile.module').then( m => m.ManageProfilePageModule)
+  },  {
+    path: 'seat-reservation',
+    loadChildren: () => import('./pages/seat-reservation/seat-reservation.module').then( m => m.SeatReservationPageModule)
+  },
+
+
 ];
 
 @NgModule({
