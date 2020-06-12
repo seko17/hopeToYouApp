@@ -13,7 +13,8 @@ import {
   AlertController,
   IonSlides,
 } from "@ionic/angular";
-
+import * as firebase from 'firebase';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 @Component({
   selector: "app-register",
   templateUrl: "./register.page.html",
@@ -21,13 +22,16 @@ import {
 })
 // tslint:disable-next-line: component-class-suffix
 export class RegisterPage implements OnInit {
-  @ViewChild("slides", { static: true }) slides: IonSlides;
+  baseAuth = firebase.auth();
+
+  @ViewChild('slides', { static: true }) slides: IonSlides;
   constructor(
     private formBuilder: FormBuilder,
     private auth: AuthServiceService,
     private navCtrl: NavController,
     public loadingController: LoadingController,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private splashScreen: SplashScreen
   ) {}
   registerForm: FormGroup;
   public loading: any;
@@ -57,6 +61,9 @@ export class RegisterPage implements OnInit {
   };
 
   ngOnInit() {
+    setTimeout(() => {
+      this.splashScreen.hide();
+    }, 2000);
     this.registerForm = this.formBuilder.group({
       email: new FormControl(
         "",
@@ -70,6 +77,8 @@ export class RegisterPage implements OnInit {
   }
   // manageProfile()
   async createUser(v) {
+    this.loading = await this.loadingController.create();
+    await this.loading.present();
     this.auth.creatUser(v.value.email, v.value.pwd).then(
       () => {
         this.loading.dismiss().then(() => {
@@ -80,14 +89,14 @@ export class RegisterPage implements OnInit {
         this.loading.dismiss().then(async () => {
           const alert = await this.alertCtrl.create({
             message: error.message,
+            mode: 'ios',
             buttons: [{ text: "Ok", role: "cancel" }],
           });
           await alert.present();
         });
       }
     );
-    this.loading = await this.loadingController.create();
-    await this.loading.present();
+
   }
   login() {
     this.navCtrl.navigateBack("login");

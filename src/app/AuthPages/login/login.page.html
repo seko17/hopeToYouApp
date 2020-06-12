@@ -7,7 +7,16 @@
     </div>
   </div>
   <div class="loginForm">
+
     <form [formGroup]="loginForm">
+      <div class="errorMessages">
+        <div *ngFor="let m of validation_messages.email" >
+          <p *ngIf="loginForm.get('email').hasError(m.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)" >{{m.message}}</p>
+        </div>
+        <div *ngFor="let m of validation_messages.password" >
+          <p *ngIf="loginForm.get('pwd').hasError(m.type) && (loginForm.get('pwd').dirty || loginForm.get('pwd').touched)" >{{m.message}}</p>
+        </div>
+      </div>
       <ion-item >
         <ion-label position="floating">Email</ion-label>
         <ion-input type="text" formControlName="email" ></ion-input>
@@ -16,7 +25,7 @@
         <ion-label position="floating">Password</ion-label>
         <ion-input type="password" formControlName="pwd"></ion-input>
       </ion-item>
-      <ion-button ion-button (click)="login(loginForm)" type="submit" [disabled]="!loginForm.valid" expand="block" fill="fill" color="dark" >
+      <ion-button ion-button (click)="login(loginForm.value)" type="submit" [disabled]="!loginForm.valid" expand="block" fill="fill" color="dark" >
         DONE
       </ion-button>
       <br>

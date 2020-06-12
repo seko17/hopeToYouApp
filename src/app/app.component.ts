@@ -20,19 +20,20 @@ export class AppComponent {
     private navCtrl : NavController
   ) {
     this.initializeApp();
+    // check if user has auth
     const unsubscribe = firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        firebase.firestore().collection('Users').where("uid" , "==", user.uid).onSnapshot( res =>{
-          if(res.empty){
-            this.navCtrl.navigateRoot('user-details')
+        // check if they created profile
+        firebase.firestore().collection('users').where('uid' , '==', user.uid).onSnapshot( res => {
+          if (res.empty){
+            this.navCtrl.navigateRoot('manage-profile');
           }else{
-            this.router.navigateByUrl("/home");
+            this.router.navigateByUrl('/home');
             unsubscribe();
           }
-        })
-      
+        });
       } else {
-        this.router.navigateByUrl("/login"); 
+        this.router.navigateByUrl('/login');
         unsubscribe();
       }
     });
@@ -41,7 +42,6 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
     });
   }
 }

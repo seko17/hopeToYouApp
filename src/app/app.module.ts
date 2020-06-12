@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { config } from './firebaseConfig';
+import { Camera } from '@ionic-native/camera/ngx';
 // import { LoginPipe } from './Auth/login.pipe';
 firebase.initializeApp(config);
 
@@ -20,7 +21,8 @@ firebase.initializeApp(config);
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    Camera
   ],
   bootstrap: [AppComponent]
 })
